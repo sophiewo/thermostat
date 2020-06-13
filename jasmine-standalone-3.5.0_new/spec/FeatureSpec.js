@@ -42,11 +42,19 @@ describe("Feature test:" , function(){
     expect(thermostat.isPowerSavingModeOn()).toBe(true);
   })
 
-  it("6. If PSM on, the max temp is 25 degrees", function(){
-    thermostat.switchPowerSavingModeOn()
-    expect(thermostat.getMaximumTemperature()).toEqual(25);
-  })
+  describe("Maximum temperature", function(){
+    it("6. If PSM on, the max temp is 25 deg", function () {
+      for(var  i = 0; i < 5; i++) {
+        thermostat.up();
+      }
+      expect(thermostat.getCurrentTemperature()).toEqual(25);
+    })
+
+    it("7. If PSM off, the max temp is 32 deg", function(){
+      for(var i = 0; i < 13; i++) {
+        thermostat.up();
+      }
+      expect(thermostat.getCurrentTemperature()).toEqual(32);
+    });
+  });
 });
-
-
-// Thermostat starts at 20 degrees

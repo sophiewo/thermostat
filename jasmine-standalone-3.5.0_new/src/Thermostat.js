@@ -5,7 +5,8 @@ class Thermostat {
     this.MINIMUM_TEMPERATURE = 10;
     this.temperature = 20;
     this.powerSavingMode = true
-    this.maximumTemperature = 25
+    this.MAX_TEMP_PSM_ON = 25
+    this.MAX_TEMP_PSM_OFF = 32
   }
 
   getCurrentTemperature(){
@@ -17,6 +18,9 @@ class Thermostat {
   }
 
   up(){
+    if (this.isMaximumTemp()){
+      return;
+    }
     return this.temperature += 1;  
   };  
 
@@ -24,16 +28,20 @@ class Thermostat {
     if( this.isMinimumTemp()) {
       return;
     }
-   return  this.temperature -= 1
+   return this.temperature -= 1
   };
 
   isMinimumTemp(){
     return this.temperature === this.MINIMUM_TEMPERATURE;
   }
 
-  isPowerSavingModeOn() {
-    return this.powerSavingMode === true;
+  isMaximumTemp(){
+    if (this.isPowerSavingModeOn() === false) {
+      return this.temperature === this.MAX_TEMP_PSM_OFF
+    }
+      return this.temperature === this.MAX_TEMP_PSM_OFF;
   }
+
 
   switchPowerSavingModeOff(){
     this.powerSavingMode = false
@@ -43,7 +51,6 @@ class Thermostat {
     this.powerSavingMode = true
   }
 
-  getMaximumTemperature(){
-    return this.maximumTemperature
-  }
+ 
+
 };
