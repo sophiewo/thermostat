@@ -7,7 +7,7 @@ describe("Feature test:" , function(){
     thermostat = new Thermostat();
   });
 
-  it("Thermostat starts with a temperature of 20degs", function(){
+  it("1. Thermostat starts with a temperature of 20degs", function(){
     expect(thermostat.getCurrentTemperature()).toEqual(20);
   });
 
@@ -15,7 +15,11 @@ describe("Feature test:" , function(){
     expect(thermostat.up()).toBeGreaterThan(20);
   });
   
+  it("3. You can decrease the temperature with a down function", function(){
+    expect(thermostat.down()).toBeLessThan(20);
+  });
 
+  
 });
 
 
