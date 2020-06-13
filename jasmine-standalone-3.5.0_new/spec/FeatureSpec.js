@@ -37,9 +37,14 @@ describe("Feature test:" , function(){
   });
 
   it("5.2 PSM can be turned back on", function(){
-    thermostat.switchPowerSavingModeOn()
+    thermostat.switchPowerSavingModeOff()
     thermostat.switchPowerSavingModeOn()
     expect(thermostat.isPowerSavingModeOn()).toBe(true);
+  })
+
+  it("6. If PSM on, the max temp is 25 degrees", function(){
+    thermostat.switchPowerSavingModeOn()
+    expect(thermostat.getMaximumTemperature()).toEqual(25);
   })
 });
 
