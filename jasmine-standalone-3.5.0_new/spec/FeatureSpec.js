@@ -8,8 +8,13 @@ describe("Feature test:" , function(){
   });
 
   it("Thermostat starts with a temperature of 20degs", function(){
-    expect(thermostat.temperature).toEqual(20);
+    expect(thermostat.getCurrentTemperature()).toEqual(20);
   });
+
+  it("2. You can increase the temperature with an up function", function(){
+    expect(thermostat.up()).toBeGreaterThan(20);
+  });
+  
 
 });
 
