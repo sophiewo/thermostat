@@ -35,6 +35,12 @@ describe("Feature test:" , function(){
     thermostat.switchPowerSavingModeOff()
     expect(thermostat.isPowerSavingModeOn()).toBe(false);
   });
+
+  it("5.2 PSM can be turned back on", function(){
+    thermostat.switchPowerSavingModeOn()
+    thermostat.switchPowerSavingModeOn()
+    expect(thermostat.isPowerSavingModeOn()).toBe(true);
+  })
 });
 
 
