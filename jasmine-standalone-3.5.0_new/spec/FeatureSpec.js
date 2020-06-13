@@ -57,4 +57,12 @@ describe("Feature test:" , function(){
       expect(thermostat.getCurrentTemperature()).toEqual(32);
     });
   });
+
+  it("8. Can be reset to the default temp", function(){
+    for (var i = 0; i < 6; i++) {
+      thermostat.up();
+    }
+    thermostat.resetTemperature();
+    expect(thermostat.getCurrentTemperature()).toEqual(20);
+  })
 });
