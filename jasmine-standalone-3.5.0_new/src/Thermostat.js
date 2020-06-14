@@ -44,7 +44,7 @@ class Thermostat {
   }
 
   resetTemperature(){
-    this.temperature = this.DEFAULT_TEMPERATURE
+   return this.temperature = 20
   };
 
   switchPowerSavingModeOff(){
